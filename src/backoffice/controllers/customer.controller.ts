@@ -76,7 +76,7 @@ export class CustomerController {
   async addBillingAddress(@Param('document') document, @Body() model: Address) {
     try {
       await this.customerService.addBillingAddress(document, model);
-      return model;
+      return new Result(null, true, model, null)
     } catch (error) {
       throw new HttpException(
         new Result(
@@ -98,7 +98,7 @@ export class CustomerController {
   ) {
     try {
       await this.customerService.addShippingAddress(document, model);
-      return model;
+      return new Result(null, true, model, null)
     } catch (error) {
       throw new HttpException(
         new Result(
